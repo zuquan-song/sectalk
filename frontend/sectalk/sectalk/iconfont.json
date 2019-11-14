@@ -1,0 +1,37 @@
+{
+  "id": "1493222",
+  "name": "SecTalk",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "568990",
+      "name": "通讯录",
+      "font_class": "tongxunlu",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "1046183",
+      "name": "我",
+      "font_class": "wo",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "7048583",
+      "name": "聊天",
+      "font_class": "liaotian",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "11391500",
+      "name": "发现",
+      "font_class": "faxian",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    }
+  ]
+}

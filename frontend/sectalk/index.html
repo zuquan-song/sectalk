@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+	<link href="css/header.css" rel="stylesheet"/>
+	<link href="sectalk/iconfont.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+		mui.plusReady(function() {
+			plus.navigator.setStatusBarStyle("light");
+			plus.navigator.setStatusBarBackground("#C9394A");
+		});
+		
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav title">
+		<h1 class="mui-title title-color">
+			<b>SecTalk</b>
+		</h1>
+	</header>
+	<nav class="mui-bar mui-bar-tab">
+		<a class="mui-tab-item mui-active" tabindex="0">
+			<span class="mui-icon iconfont icon-liaotian"></span>
+			<span class="mui-tab-label">SecTalk</span>
+		</a>
+		<a class="mui-tab-item" tabindex="1">
+			<span class="mui-icon iconfont icon-tongxunlu"></span>
+			<span class="mui-tab-label">Contacts</span>
+		</a>
+		<a class="mui-tab-item" tabindex="2">
+			<span class="mui-icon iconfont icon-faxian"></span>
+			<span class="mui-tab-label">Discovery</span>
+		</a>
+		<a class="mui-tab-item" tabindex="3">
+			<span class="mui-icon iconfont icon-wo"></span>
+			<span class="mui-tab-label">Me</span>
+		</a>
+	</nav>
+	<script type="text/javascript" charset="utf-8">
+	  	var sec_arr = [
+			{
+				pageId: "sec_talk_list.html",
+				pageUrl: "sec_talk_list.html"	
+			},
+			{
+				pageId: "contacts.html",
+				pageUrl: "contacts.html"	
+			},
+			{
+				pageId: "discover.html",
+				pageUrl: "discover.html"	
+			},
+			{
+				pageId: "me.html",
+				pageUrl: "me.html"	
+			}
+		];
+		
+		var muxinStyle = {
+			top: "44px",
+			bottom: "55px"
+		}
+		
+		
+
+		mui.plusReady(function() {
+			mui.back = function() {
+				return false;
+			}
+			
+			var indexWebview = plus.webview.currentWebview();
+			for (var i = 0; i < sec_arr.length; i ++) {
+				var sectalk_page = plus.webview.create(sec_arr[i].pageUrl, sec_arr[i].pageId, muxinStyle);
+				sectalk_page.hide();
+				indexWebview.append(sectalk_page);
+			}
+			plus.webview.show(sec_arr[0].pageId);
+			
+			mui(".mui-bar-tab").on("tap", "a", function() {
+				var tabindex = this.getAttribute("tabindex");
+				plus.webview.show(sec_arr[tabindex].pageId, "fade-in");
+				
+				for (var i = 0; i < sec_arr.length; i ++) {
+					if (i != tabindex) {
+						plus.webview.hide(sec_arr[i].pageId, "fade-out");
+					}
+				}				
+			})
+		})
+		
+		
+	</script>
+</body>
+</html>
